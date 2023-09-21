@@ -18,7 +18,6 @@ function playerSelection() {
 
   //  assigning number to player's choice, rock, paper, and scissor to 0, 1, 2, respectively.
   let playerNum = 0;
-
   if (playerInput === "paper") {
     playerNum = 1;
   } else if (playerInput === "scissor") {
@@ -30,51 +29,72 @@ function playerSelection() {
 // for a single round
 function playRound() {
   let score = 0;
-  let player = playerSelection(),
+  let compScore = 0;
+
+  let playerNum = playerSelection(),
     computer = computerSelection;
 
   let winMsg = `You win. You chose ${numToChoice(
-    player
+    playerNum
   )}, computer chose ${numToChoice(computer)}.`;
+
   let loseMsg = `You lose. You chose ${numToChoice(
-    player
+    playerNum
   )}, computer chose ${numToChoice(computer)}.`;
+
   let drawMsg = `It's a draw. You chose ${numToChoice(
-    player
+    playerNum
   )}, computer chose ${numToChoice(computer)}.`;
+
+  // determining the winner
   //   if both sides choose the same, then it's draw
-  if (player === computer) {
+  if (playerNum === computer) {
     alert(drawMsg);
+
     // conditions for player to win/lose;
-  } else if (player === 0) {
+  } else if (playerNum === 0) {
     // conditions for player to win if player chooses "rock"
     if (computer === 2 && computer != 1) {
       alert(winMsg);
       score += 1;
+      // compScore -= 1;
     } else {
       alert(loseMsg);
+      // score -= 1;
+      compScore += 1;
     }
-  } else if (player === 1) {
+  } else if (playerNum === 1) {
     // conditions for player to win if player chooses "paper"
     if (computer === 0 && computer != 2) {
       alert(winMsg);
       score += 1;
+      // compScore -= 1;
     } else {
       alert(loseMsg);
+      // score -= 1;
+      compScore += 1;
     }
 
     // if player chose "scissor":
-  } else if (player === 2) {
+  } else if (playerNum === 2) {
     // conditions for player to win if player chooses "paper"
     if (computer === 1 && computer != 0) {
       alert(winMsg);
       score += 1;
+      // compScore -= 1;
     } else {
       alert(loseMsg);
+      // score -= 1;
+      compScore += 1;
     }
   }
-  return score;
+
+  let roundResult = [score, compScore];
+  // return score;
+  // alert(roundResult);
+  return roundResult;
 }
+// playRound();
 
 // convert 0, 1, 2 back to rock, paper, scissor, respectively.
 function numToChoice(n) {
@@ -86,16 +106,34 @@ function numToChoice(n) {
   }
   return choice;
 }
+// some
 
-// this function keep track of number of rounds played and player's score
+// this function keeps track of number of rounds played and player's score
 function game(rounds) {
-  let score;
-  i = 1;
+  let result;
+  let playerScore = 0;
+  let compScore = 0;
+
+  // let result = rounds - compScore;
+  i = 0;
   while (i < rounds) {
-    score = playRound();
+    result = playRound();
+    playerScore += result[0];
+    compScore += result[1];
+
     i += 1;
   }
-  return alert(`You played ${rounds} rounds. You won ${score} rounds.`);
-}
 
+  let matchResult = "";
+  let drawMatches = rounds - (playerScore + compScore);
+  if (playerScore === compScore) {
+    matchResult = `It's a draw. You won ${playerScore} time(s) and computer won ${compScore} time(s).`;
+  } else if (playerScore > compScore) {
+    matchResult = `You win! You played ${rounds} rounds and won ${playerScore} time(s)!`;
+  } else {
+    matchResult = `You played ${rounds} rounds, tied ${drawMatches} and lost ${compScore} time(s). You lose:( `;
+  }
+
+  alert(matchResult);
+}
 // game(3);
