@@ -3,13 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Rock Paper Scissor</title>
   </head>
 
   <body>
-    <h1>Let's play Rock Paper Scissors!</h1>
-    <p>This a simple Rock-Paper-Scissor game.</p>
-    <p>Refresh the page to restart the game.</p>
+    <header>
+      <h1>Rock Paper Scissors</h1>
+    </header>
+
+    <main>
+      <div>
+        <h2>You  vs  <span class="comp">Computer</span></h2>
+
+        <div class="weapons">
+          <p>Choose your weapon:</p>
+          <div class="weapon-choices">
+            <button id="rockBtn" value="rock">Rock  &#x270A </button>
+            <button id="paperBtn" value="paper">Paper &#x270B</button>
+            <button id="scissorBtn" value="scissor">Scissor &#x270C</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="score-container">
+        <h2 id="score"> score</h2>
+        
+        
+        <h2 id="result"> result</h2>
+        <p class="result-para"></p>
+      </div>
+    </main>
+
+    <footer>
+      <p>Copyright © Ali</p>
+    </footer>
   </body>
-  <script src="script.js"></script>
 </html>
