@@ -7,44 +7,38 @@
     <script src="script.js" defer></script>
     <title>Rock Paper Scissor</title>
   </head>
-
   <body>
     <header>
       <h1>Rock Paper Scissors</h1>
     </header>
-
     <main>
       <div>
         <h2 class="main-h2">You  vs Computer</h2>
+        <p class="main-para "> The one who gets 5 wins first is the winner!</p>
         <div class="weapons">
           <p class="main-para">Choose your weapon:</p>
-          <div class="weapon-choices">
+          <div class="buttons">
             <button id="rockBtn" value="rock">Rock  &#x270A </button>
             <button id="paperBtn" value="paper">Paper &#x270B</button>
             <button id="scissorBtn" value="scissor">Scissor &#x270C</button>
           </div>
         </div>
       </div>
-
       <div id="score-container">
         <div class="scoreboard-container">
-          <div class="player-scoreboard">
-            <p class="player">You</p>
+          <div>
+            <p class="player name">You</p>
             <p id="player-score"> 0 </p>
           </div>
-
-          <div class="computer-scoreboard">
-            <p class="computer">Computer</p>
+          <div>
+            <p class="computer name">Computer</p>
             <p id="computer-score"> 0 </p>
           </div>
         </div>
-        
         <h2 id="result"> Final result: </h2>
-        <p class="result-para"></p>
+        <p class="result-para"> ?</p>
       </div>
-
     </main>
-
     <footer>
       <p>Copyright © Ali</p>
     </footer>
