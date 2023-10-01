@@ -15,10 +15,9 @@
 
     <main>
       <div>
-        <h2>You  vs  <span class="comp">Computer</span></h2>
-
+        <h2 class="main-h2">You  vs Computer</h2>
         <div class="weapons">
-          <p>Choose your weapon:</p>
+          <p class="main-para">Choose your weapon:</p>
           <div class="weapon-choices">
             <button id="rockBtn" value="rock">Rock  &#x270A </button>
             <button id="paperBtn" value="paper">Paper &#x270B</button>
@@ -28,12 +27,22 @@
       </div>
 
       <div id="score-container">
-        <h2 id="score"> score</h2>
+        <div class="scoreboard-container">
+          <div class="player-scoreboard">
+            <p class="player">You</p>
+            <p id="player-score"> 0 </p>
+          </div>
+
+          <div class="computer-scoreboard">
+            <p class="computer">Computer</p>
+            <p id="computer-score"> 0 </p>
+          </div>
+        </div>
         
-        
-        <h2 id="result"> result</h2>
+        <h2 id="result"> Final result: </h2>
         <p class="result-para"></p>
       </div>
+
     </main>
 
     <footer>
