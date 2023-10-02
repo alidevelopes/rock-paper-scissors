@@ -10,6 +10,7 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: aliceblue;
   min-height: 100vh;
+  max-height: 100%;
   background-color: black;
   text-align: center;
 
@@ -20,10 +21,8 @@ body {
 
 header {
   font-size: 1.5rem;
-  color: aliceblue;
   background-color: #333;
-  padding: 2.2em;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 2em;
 }
 
 h2,
@@ -31,16 +30,12 @@ p.main-para {
   padding: 1em;
 }
 
-main {
-  flex-grow: 1;
-}
-
 button {
   font-family: inherit;
   border-radius: 10px;
   font-size: 2rem;
   padding: 0.8em 1.2em;
-  margin-inline: 0.5em;
+  margin: 5px 5px;
   background-color: #99a98f;
 }
 
@@ -48,31 +43,19 @@ button:hover {
   background-color: whitesmoke;
 }
 
-/* scoreboard  */
 .scoreboard-container {
-  /* background-color: lightblue; */
   display: flex;
   justify-content: center;
-  gap: 5em;
+  gap: 1em;
 }
 
-/* player name, score, and result */
-p.player,
-p.computer {
-  font-size: 1.4rem;
-  padding-top: 1.3em;
-  padding-bottom: 0.5em;
-}
-/* result */
+/* score and final result */
 #player-score,
 #computer-score {
   color: #333;
   font-size: 1.5rem;
 }
 
-#result {
-  margin-top: 1em;
-}
 .result-para {
   color: #a6ff96;
   font-size: 1.5rem;
@@ -82,6 +65,5 @@ p.computer {
 footer {
   font-size: 1rem;
   padding: 1em;
-  color: aliceblue;
   background-color: #333;
 }
