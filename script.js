@@ -3,7 +3,6 @@
 // score
 let computerScore = 0;
 let playerScore = 0;
-let singleRoundWinner = "";
 
 // get computer choice
 function getComputerChoice() {
@@ -40,9 +39,8 @@ const finalResultPara = document.querySelector(".result-para");
 
 //  get a single round winner
 function playRound(playerChoice, computerChoice) {
-  // condition for draw
   if (playerChoice === computerChoice) {
-    // singleRoundWinner = "It's a draw";
+    singleRoundWinner.textContent = `It's draw.`;
   }
   // player wins
   if (
@@ -51,7 +49,6 @@ function playRound(playerChoice, computerChoice) {
     (playerChoice === "scissor" && computerChoice === "paper")
   ) {
     playerScore++;
-    singleRoundWinner = "player";
   }
   // computer wins
   if (
@@ -60,7 +57,6 @@ function playRound(playerChoice, computerChoice) {
     (playerChoice === "scissor" && computerChoice === "rock")
   ) {
     computerScore++;
-    singleRoundWinner = "computer";
   }
   // adding score for display
   playerScorePara.textContent = playerScore;
@@ -74,11 +70,10 @@ function getGameStatus() {
   } else if (computerScore === 5) {
     keepPlaying = false;
   }
-
   return keepPlaying;
 }
 
-function endGameWinner() {
+function endGameWinnerMsg() {
   let WINNER = "";
   if (playerScore === 5) {
     WINNER = `Congrats! You are the winner.`;
@@ -88,16 +83,31 @@ function endGameWinner() {
   return WINNER;
 }
 
+// reset all score for new start
+function resetAllScore() {
+  finalResultPara.textContent = "?";
+  playerScorePara.textContent = 0;
+  computerScorePara.textContent = 0;
+  playerChoice = "";
+  isGameOver = false;
+}
+
+// clickHandler - responsible for event handling and response
+let isGameOver = false;
 function clickHandler() {
+  if (isGameOver) {
+    resetAllScore();
+    return;
+  }
+
   let playerChoice = this.value;
   let computerChoice = getComputerChoice();
   playRound(playerChoice, computerChoice);
 
   if (!getGameStatus()) {
-    finalResultPara.textContent = endGameWinner();
-
-    // resetting all scores
+    finalResultPara.textContent = endGameWinnerMsg();
     playerScore = 0;
     computerScore = 0;
+    isGameOver = true;
   }
 }
